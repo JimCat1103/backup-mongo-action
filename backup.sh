@@ -8,10 +8,10 @@ BACKUP_DIR="backups"
     mkdir $BACKUP_DIR
   fi
 
-echo $INPUT_MONGODB_URI
-echo $INPUT_MONGODB_NAME
+echo "$INPUT_MONGODB_URI"
+echo "$INPUT_MONGODB_NAME"
 
-mongodump --uri $INPUT_MONGODB_URI --db $INPUT_MONGODB_NAME -o=./$BACKUP_DIR
+mongodump --uri $INPUT_MONGODB_URI -d=$INPUT_MONGODB_NAME -o=./$BACKUP_DIR
 
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/
