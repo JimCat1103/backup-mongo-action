@@ -1,10 +1,16 @@
-# Uses Alpine Linux v3.12
-FROM appleboy/drone-ssh:linux-amd64
+FROM ubuntu:18.04
 
-# Install rsync
-RUN apk --update add --no-cache rsync openssh-client git dpkg && rm -rf /var/cache/apk/*
+RUN apt-get update
 
-COPY backup.sh /backup.sh
+RUN apt-get install -y wget
+
+RUN apt-get install dpkg
+
+RUN wget -O mongo-tools.deb https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu1804-x86_64-100.6.1.deb
+
+RUN dpkg -i ./mongo-tools.deb
+
+ADD backup.sh /backup.sh
 RUN chmod +x /backup.sh
 
 ENTRYPOINT ["/backup.sh"]
