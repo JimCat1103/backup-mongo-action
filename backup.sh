@@ -15,7 +15,3 @@ mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/
-
-tar zcvf $INPUT_MONGODB_NAME.tar.gz $BACKUP_DIR
-
-ls -lFhS ./$BACKUP_DIR/
