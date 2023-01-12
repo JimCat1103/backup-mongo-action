@@ -4,13 +4,17 @@ author: 'JimCat'
 
 inputs:
   mongodb_uri:
-    description: 'Mongo DB Server URL'
+    description: 'Cloud MongoDB Server URI'
     required: true
+outputs:
+  db_uri:
+    description: 'Cloud MongoDB Server URI'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.mongodb_uri }}
 
 branding:
   icon: 'database'
   color: 'gray-dark'
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
