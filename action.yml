@@ -6,14 +6,20 @@ inputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
     required: true
+  db_name:
+    description: 'Database Name'
+    required: true
 outputs:
   db_uri:
     description: 'Cloud MongoDB Server URI'
+  db_name:
+    description: 'Database Name'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.mongodb_uri }}
+    - ${{ inputs.db_name }}
 
 branding:
   icon: 'database'
