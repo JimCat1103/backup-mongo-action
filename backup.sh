@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-echo "INPUT_MONGODB_URI=$db_uri" >> $GITHUB_OUTPUT
+echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_NAME=$db_name" >> $GITHUB_OUTPUT
 
 BACKUP_DIR="backups"
@@ -11,7 +11,7 @@ BACKUP_DIR="backups"
 echo "$INPUT_MONGODB_URI"
 echo "$INPUT_MONGODB_NAME"
 
-mongodump --uri $INPUT_MONGODB_URI -d=$INPUT_MONGODB_NAME -o=./$BACKUP_DIR
+mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/

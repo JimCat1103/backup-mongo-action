@@ -10,7 +10,7 @@ inputs:
     description: 'Database Name'
     required: true
 outputs:
-  db_uri:
+  mongodb_uri:
     description: 'Cloud MongoDB Server URI'
   db_name:
     description: 'Database Name'
