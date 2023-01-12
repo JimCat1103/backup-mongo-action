@@ -1,0 +1,16 @@
+name: 'Backup from Cloud MongoDB Atlas'
+description: 'Backup from Cloud MongoDB Atlas'
+author: 'JimCat'
+
+inputs:
+  mongodb_uri:
+    description: 'Mongo DB Server URL'
+    required: true
+
+branding:
+  icon: 'database'
+  color: 'gray-dark'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
