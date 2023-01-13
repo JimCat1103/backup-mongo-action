@@ -8,10 +8,10 @@ else
   mkdir $BACKUP_DIR
 fi
 
-echo "EXEC_TYPE=$exec_type" >> $GITHUB_OUTPUT
+echo "exec_type=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-if [[ "$EXEC_TYPE" = multi ]]; then
+if [[ "$exec_type" = "multi" ]]; then
   IFS=","
   array=($string)
   for element in "${array[@]}"
@@ -20,7 +20,7 @@ if [[ "$EXEC_TYPE" = multi ]]; then
     mongodump --uri "$element" -o=./$BACKUP_DIR
   done
 else
-  echo "uri= $INPUT_MONGODB_URI"
+  echo "uri= $exec_type, $INPUT_MONGODB_URI"
   mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 fi
 
