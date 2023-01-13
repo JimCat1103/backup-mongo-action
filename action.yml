@@ -6,14 +6,15 @@ inputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
     required: true
-  db_name:
-    description: 'Database Name'
-    required: true
+  is_multi:
+    description: 'Is multi database ?'
+    required: false
+    default: 'false'
 outputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
-  db_name:
-    description: 'Database Name'
+  is_multi:
+    description: 'Is multi database'
 runs:
   using: 'docker'
   image: 'Dockerfile'
