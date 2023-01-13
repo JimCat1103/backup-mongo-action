@@ -11,16 +11,13 @@ fi
 echo "EXEC_TYPE=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-TYPE=multi
-if [ "$EXEC_TYPE" = "$TYPE" ]; then
-  IFS=","
-  array=($string)
-  for element in "${array[@]}"
-  do
-    echo "uri:: $element"
-    mongodump --uri "$element" -o=./$BACKUP_DIR
-  done
-fi
+IFS=","
+array=($string)
+for element in "${array[@]}"
+do
+  echo "uri:: $element"
+  mongodump --uri "$element" -o=./$BACKUP_DIR
+done
 
 echo "??? $exec_type"
 echo "Show me backups:"
