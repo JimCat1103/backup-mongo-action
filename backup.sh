@@ -12,9 +12,9 @@ BACKUP_DIR="backups"
   fi
 
 if [ "$IS_MULTI" = "true" ]; then
-  array=$INPUT_MONGODB_URI
   set -f
   IFS=','
+  array=($INPUT_MONGODB_URI)
   for i in "${array[@]}"
   do
     echo "uri:: $i"
