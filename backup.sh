@@ -6,15 +6,20 @@ echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 BACKUP_DIR="backups"
   if [ ! -d ./$BACKUP_DIR/ ]; then
     mkdir $BACKUP_DIR
+  else
+    sudo rm -rf $BACKUP_DIR
+    mkdir $BACKUP_DIR
   fi
 
-uri_str="mongodbUri1, mongodbUri2, mongodbUri3"
-IFS=',' read -r -a array <<< "$uri_str"
-
-for i in "${array[@]}"
-do
-   sudo mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
-done
+if [ "$is_multi" = "true" ]; then
+  IFS=',' read -r -a array <<< "$mongodb_uri"
+  for i in "${array[@]}"
+  do
+     sudo mongodump --uri $i -o=./$BACKUP_DIR
+  done
+else
+  sudo mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
+fi
 
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/
