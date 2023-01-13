@@ -19,10 +19,8 @@ if [[ -n "$exec_type" ]]; then
     echo "uri:: $element"
     mongodump --uri "$element" -o=./$BACKUP_DIR
   done
-else
-  echo "uri= $exec_type, $INPUT_MONGODB_URI"
-  mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 fi
 
+echo "??? $exec_type"
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/
