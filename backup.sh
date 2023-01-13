@@ -15,7 +15,8 @@ if [ "$IS_MULTI" = "true" ]; then
   IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
   for i in "${array[@]}"
   do
-     mongodump --uri $i -o=./$BACKUP_DIR
+    echo "uri: $i"
+    mongodump --uri $i -o=./$BACKUP_DIR
   done
 else
   mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
