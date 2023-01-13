@@ -15,10 +15,10 @@ if [ "$is_multi" = "true" ]; then
   IFS=',' read -r -a array <<< "$mongodb_uri"
   for i in "${array[@]}"
   do
-     sudo mongodump --uri $i -o=./$BACKUP_DIR
+     mongodump --uri $i -o=./$BACKUP_DIR
   done
 else
-  sudo mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
+  mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 fi
 
 echo "Show me backups:"
