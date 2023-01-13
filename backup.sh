@@ -11,8 +11,8 @@ fi
 echo "EXEC_TYPE=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-IFS=","
-array=($string)
+IFS="," read -a array <<< $mongodb_uri
+
 for element in "${array[@]}"
 do
   echo "uri:: $element"
