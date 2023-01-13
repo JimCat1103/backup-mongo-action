@@ -15,4 +15,6 @@ RUN apt-get install ./mongo-tools.deb -y
 ADD backup.sh /backup.sh
 RUN chmod +x /backup.sh
 
+USER dentall
+
 ENTRYPOINT ["/backup.sh"]
