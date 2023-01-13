@@ -11,7 +11,7 @@ BACKUP_DIR="backups"
     mkdir $BACKUP_DIR
   fi
 
-if [ "$EXEC_TYPE" = "multi" ]; then
+if [ "$EXEC_TYPE" = multi ]; then
   IFS=","
   array=($string)
   for element in "${array[@]}"
