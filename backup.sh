@@ -11,7 +11,7 @@ fi
 echo "EXEC_TYPE=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-if [ $EXEC_TYPE = "multi" ]; then
+if [ "$EXEC_TYPE" = ""multi"" ]; then
   IFS=","
   array=($string)
   for element in "${array[@]}"
