@@ -20,7 +20,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.mongodb_uri }}
-    - ${{ inputs.db_name }}
+    - ${{ inputs.is_multi }}
 
 branding:
   icon: 'database'
