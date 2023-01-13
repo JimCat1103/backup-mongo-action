@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "IS_MULTI=$is_multi" >> $GITHUB_OUTPUT
-echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
+echo "is_multi=$is_multi" >> $GITHUB_OUTPUT
+echo "mongodb_uri=$mongodb_uri" >> $GITHUB_OUTPUT
 
 BACKUP_DIR="backups"
   if [ ! -d ./$BACKUP_DIR/ ]; then
@@ -11,17 +11,17 @@ BACKUP_DIR="backups"
     mkdir $BACKUP_DIR
   fi
 
-if [ "$IS_MULTI" = true ]; then
+if [ "$is_multi" = true ]; then
   IFS=","
-  array=($string)
+  array=($mongodb_uri)
   for element in "${array[@]}"
   do
     echo "uri:: $element"
     mongodump --uri "$element" -o=./$BACKUP_DIR
   done
 else
-  echo "uri= $INPUT_MONGODB_URI"
-  mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
+  echo "uri= $mongodb_uri"
+  mongodump --uri $mongodb_uri -o=./$BACKUP_DIR
 fi
 
 echo "Show me backups:"
