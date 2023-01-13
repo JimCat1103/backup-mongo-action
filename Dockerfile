@@ -1,10 +1,10 @@
 FROM ubuntu:20.04
 
-RUN apt-get update
+RUN apt-get update --fix-missing
 
-RUN apt-get install --reinstall ca-certificates -y
+RUN apt upgrade -y
 
-RUN apt-get update && apt-get install -y wget
+RUN apt-get install -y wget
 
 RUN apt-get install dpkg
 
