@@ -8,10 +8,10 @@ else
   mkdir $BACKUP_DIR
 fi
 
-echo "exec_type=$exec_type" >> $GITHUB_OUTPUT
+echo "EXEC_TYPE=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-if [[ -n "$exec_type" ]]; then
+if [ -n $EXEC_TYPE ]; then
   IFS=","
   array=($string)
   for element in "${array[@]}"
