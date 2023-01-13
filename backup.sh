@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh -l
 
 echo "IS_MULTI=$is_multi" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
@@ -19,7 +19,7 @@ if [ "$IS_MULTI" = "true" ]; then
     mongodump --uri "$i" -o=./$BACKUP_DIR
   done
 else
-  echo "uri: $INPUT_MONGODB_URI"
+  echo "uri= $INPUT_MONGODB_URI"
   mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 fi
 
