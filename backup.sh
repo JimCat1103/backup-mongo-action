@@ -7,7 +7,7 @@ BACKUP_DIR="backups"
   if [ ! -d ./$BACKUP_DIR/ ]; then
     mkdir $BACKUP_DIR
   else
-    sudo rm -rf $BACKUP_DIR
+    rm -rf $BACKUP_DIR
     mkdir $BACKUP_DIR
   fi
 
