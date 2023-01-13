@@ -11,8 +11,8 @@ BACKUP_DIR="backups"
     mkdir $BACKUP_DIR
   fi
 
-if [ "$is_multi" = "true" ]; then
-  IFS=',' read -r -a array <<< "$mongodb_uri"
+if [ "$IS_MULTI" = "true" ]; then
+  IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
   for i in "${array[@]}"
   do
      mongodump --uri $i -o=./$BACKUP_DIR
