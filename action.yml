@@ -8,8 +8,6 @@ inputs:
     required: true
   exec_type:
     description: 'you can input "multi" to dump multiple db'
-    required: false
-    default: ''
 outputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
