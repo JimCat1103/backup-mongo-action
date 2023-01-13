@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 echo "IS_MULTI=$is_multi" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
