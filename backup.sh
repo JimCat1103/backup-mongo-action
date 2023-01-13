@@ -10,8 +10,8 @@ BACKUP_DIR="backups"
     rm -rf $BACKUP_DIR
     mkdir $BACKUP_DIR
   fi
-
-if [ $IS_MULTI = "true" ]; then
+echo "IS_MULTI: $IS_MULTI"
+if [ "$IS_MULTI" = true ]; then
   IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
   for i in "${array[@]}"
   do
