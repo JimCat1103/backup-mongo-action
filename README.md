@@ -6,7 +6,7 @@ This action helps you to dump data from `Cloud MongoDB Atlas`, and then you can 
 ## How to Use
 Before using this action, make sure you have already created a db on Cloud MongoDB Atlas.  
 
-## important !
+## important :exclamation:
 Ensure that your IP Address has permission to access your Cloud MongoDB Atlas. 
 
 ![img1](./images/1.png)  
