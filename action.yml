@@ -6,21 +6,14 @@ inputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
     required: true
-  exec_type:
-    description: 'you can input "multi" to dump multiple db'
-    required: true
-    default: 'multi'
 outputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
-  exec_type:
-    description: 'execute type'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.mongodb_uri }}
-    - ${{ inputs.exec_type }}
 branding:
   icon: 'database'
   color: 'gray-dark'

@@ -9,17 +9,11 @@ else
 fi
 
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
-echo "TAG=$exec_type" >> $GITHUB_OUTPUT
 
-echo "type is $TAG, $exec_type"
-
-if [ "$TAG" = "" ]; then
-  IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
-  for i in "${array[@]}" ; do
-    echo "this in $i"
-  done
-fi
-
+IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
+for i in "${array[@]}" ; do
+  echo "this in $i"
+done
 
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/
