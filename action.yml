@@ -8,7 +8,7 @@ inputs:
     required: true
 outputs:
   mongodb_uri:
-    description: 'Cloud MongoDB Server URI'
+    description: 'Cloud MongoDB Server URI, You can set your uri by using a "," to separate multiple uris. No spaces are needed between them. For example: "uri1,uri2" will be split to ["uri1", "uri2"].'
 runs:
   using: 'docker'
   image: 'Dockerfile'
