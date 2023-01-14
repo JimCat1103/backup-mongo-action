@@ -11,7 +11,7 @@ fi
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
 IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
-if [[ "${array[@]}" -eq 0 ]]; then
+if [ ${#array[@]} -eq 0 ]; then
    echo $INPUT_MONGODB_URI
 else
    for i in "${array[@]}" ; do
