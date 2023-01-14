@@ -8,6 +8,7 @@ inputs:
     required: true
   exec_type:
     description: 'you can input "multi" to dump multiple db'
+    required: true
 outputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
@@ -19,7 +20,6 @@ runs:
   args:
     - ${{ inputs.mongodb_uri }}
     - ${{ inputs.exec_type }}
-
 branding:
   icon: 'database'
   color: 'gray-dark'
