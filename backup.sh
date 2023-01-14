@@ -13,7 +13,8 @@ array=()
 IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
 echo $INPUT_MONGODB_URI
 if [[ "${#array[@]}" -eq 0 ]]; then
-   echo $INPUT_MONGODB_URI
+  echo "i want in "
+  echo $INPUT_MONGODB_URI
 else
    for i in "${array[@]}" ; do
      echo "this in $i"
