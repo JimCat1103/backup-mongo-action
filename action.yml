@@ -9,6 +9,7 @@ inputs:
   exec_type:
     description: 'you can input "multi" to dump multiple db'
     required: true
+    default: 'multi'
 outputs:
   mongodb_uri:
     description: 'Cloud MongoDB Server URI'
