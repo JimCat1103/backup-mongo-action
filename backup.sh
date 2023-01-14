@@ -9,7 +9,7 @@ else
 fi
 
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
-
+array=()
 IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
 echo $INPUT_MONGODB_URI
 if [[ "${#array[@]}" -eq 0 ]]; then
