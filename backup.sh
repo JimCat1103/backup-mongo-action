@@ -8,10 +8,12 @@ else
   mkdir $BACKUP_DIR
 fi
 
-echo "exec_type=$exec_type" >> $GITHUB_OUTPUT
+echo "TAG=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-if [[ $exec_type = "multi" ]] || [ "$exec_type" = "multi" ] || [ "$exec_type" = multi ] || [[ $exec_type = multi ]] || [ "$exec_type" = "" ]; then
+echo "type is $TAG"
+
+if [[ $TAG = "multi" ]] || [ "$TAG" = "multi" ] || [ "$TAG" = multi ] || [[ $TAG = multi ]] || [ "$TAG" = "" ]; then
   IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
   for i in "${array[@]}" ; do
     echo "this in $i"
