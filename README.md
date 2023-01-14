@@ -1,7 +1,7 @@
 Backup from Cloud MongoDB Atlas
 ===
 
-This action helps you to dump data from `Cloud MongoDB Atlas`, and then you can continue to do whatever you want with the `/backups` data, such as packaging and uploading to gcs for backup.
+This action helps you to dump data from `Cloud MongoDB Atlas`, then you can continue to do whatever you want with the `/backups` data, such as packaging and uploading to gcs for backup.
 
 ## How to Use
 Before using this action, make sure you have already created a db on Cloud MongoDB Atlas.  
@@ -12,7 +12,7 @@ Ensure that your IP Address has permission to access your Cloud MongoDB Atlas.
 ![img1](./images/1.png)  
 *You can use `0.0.0.0/0` to let all networks connect, but I do not recommend it.*
 
-If it's a private cluster db, when starting your GitHub Action, you need to use your own runner ([self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners)), and make your own computer machine has a Fixed Static IP, then add this IP Address to your CLoud MongoDB's IP Access List, so you have permission to access your Cluster MongoDB.  
+If it's a private cluster db, when starting your GitHub Action, you need to use your own runner ([self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners)), and make your own computer machine has a Static IP, then add this IP Address to your CLoud MongoDB's IP Access List, so you have permission to access your Cluster MongoDB.  
 
 ---
 
