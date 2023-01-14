@@ -13,10 +13,11 @@ array=()
 IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
 if [ ${#array[@]} -eq 0 ]; then
   echo "i want in "
-  echo $INPUT_MONGODB_URI
+  mongodump --uri $INPUT_MONGODB_URI -o=./$BACKUP_DIR
 else
    for i in "${array[@]}" ; do
      echo "this in $i"
+     mongodump --uri $i -o=./$BACKUP_DIR
    done
 fi
 
