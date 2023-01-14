@@ -11,10 +11,7 @@ fi
 echo "exec_type=$exec_type" >> $GITHUB_OUTPUT
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
-bash --version
-sh --version
-
-if [ $exec_type = "multi" ] || [ "$exec_type" = "multi" ] || [ "$exec_type" = multi ] || [ $exec_type = multi ]; then
+if [[ $exec_type = "multi" ]] || [ "$exec_type" = "multi" ] || [ "$exec_type" = multi ] || [[ $exec_type = multi ]]; then
   IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
   for i in "${array[@]}" ; do
     echo "this in $i"
