@@ -11,9 +11,13 @@ fi
 echo "INPUT_MONGODB_URI=$mongodb_uri" >> $GITHUB_OUTPUT
 
 IFS=',' read -r -a array <<< $INPUT_MONGODB_URI
-for i in "${array[@]}" ; do
-  echo "this in $i"
-done
+if [ ${#array[@]} -eq 0 ]; then
+   echo $INPUT_MONGODB_URI
+else
+   for i in "${array[@]}" ; do
+     echo "this in $i"
+   done
+fi
 
 echo "Show me backups:"
 ls -lFhS ./$BACKUP_DIR/
