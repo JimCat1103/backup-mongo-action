@@ -34,7 +34,7 @@ The mongodb_uri will pass to the Docker container
 
 ```github action
 - name: Backup MongoDB  
-  uses: jim19901103/backup-mongo-action@master  
+  uses: JimCat1103/backup-mongo-action@master  
   with:
     mongodb_uri: ${{ secrets.CLOUD_MONGODB_URI }}
 ```
